@@ -1,0 +1,29 @@
+package tierraalaluna;
+/**
+ *
+ * @author ALUMNOS
+ */
+public class TierraALaLuna {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        double hoja = 0.0001;
+        double distancia = 384400000;
+        int dobleces = 0;
+        
+        while (hoja<=distancia) {
+            hoja*=2;
+            //hoja =hoja*2
+            dobleces++;
+        }
+        
+        System.out.println("Se necesitan "+ dobleces + " dobleces para alcanzar la luna.");
+          
+               
+                
+    }
+    
+}

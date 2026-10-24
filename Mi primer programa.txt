@@ -1,0 +1,21 @@
+package miprimerprograma;
+
+/**
+ *
+ * @author ALUMNOS
+ */
+public class MiPrimerPrograma {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        System.out.println("Hola Mundo");
+        System.out.println("Bienvenidos a programacion 3");
+        System.out.print("Nooo ");
+        System.out.print("xd\n");
+        
+    }
+    
+}

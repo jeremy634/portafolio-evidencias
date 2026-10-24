@@ -1,0 +1,36 @@
+package cifrasdeunnumero;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author ALUMNOS
+ */
+public class CifrasDeUnNumero {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+
+        Scanner ent = new Scanner (System.in);
+        int num;
+        
+        System.out.println("Ingresa un numero: ");
+        num=ent.nextInt();
+        
+        if(num<10){
+            System.out.println("Tu numero tiene una cifra");
+        }else if(num<100){
+            System.out.println("Tu numero tiene dos cifras");
+        }else if(num<1000){
+                System.out.print("Tu numero tiene tres cifras");
+        }else if(num<10000){
+                System.out.print("Tu numero tiene cuatro cifras");
+        }     
+            
+        
+    }
+    
+}

@@ -1,0 +1,288 @@
+package sobreroseleccionador;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author jesus
+ */
+public class SobreroSeleccionador {
+
+    int gryf = 0;
+    int sly = 0;
+    int raven = 0;
+    int huff = 0;
+
+    Scanner entrada = new Scanner(System.in);
+
+    // Método para mostrar una pregunta
+    public void mostrarPregunta(int numero) {
+
+        System.out.println("\n====================================");
+        System.out.println("Pregunta " + numero);
+        System.out.println("====================================");
+
+
+//Abrimos un swicth para las preguntas
+
+        switch (numero) {
+
+            case 1:
+                System.out.println("¿Que cualidad te representa mas?");
+                System.out.println("a) Valentia");
+                System.out.println("b) Ambicion");
+                System.out.println("c) Inteligencia");
+                System.out.println("d) Lealtad");
+                break;
+
+            case 2:
+                System.out.println("¿Que harias si un amigo esta en peligro?");
+                System.out.println("a) Enfrentaria el peligro para ayudarlo");
+                System.out.println("b) Buscaria una estrategia para ayudarlo");
+                System.out.println("c) Analizaria la situacion para encontrar una solucion");
+                System.out.println("d) Permaneceria a su lado sin abandonarlo");
+                break;
+
+            case 3:
+                System.out.println("¿Que actividad prefieres?");
+                System.out.println("a) Vivir una aventura");
+                System.out.println("b) Liderar un proyecto");
+                System.out.println("c) Investigar y aprender algo nuevo");
+                System.out.println("d) Trabajar en equipo");
+                break;
+
+            case 4:
+                System.out.println("¿Como enfrentarias un problema dificil?");
+                System.out.println("a) Lo enfrentaria con valor");
+                System.out.println("b) Buscaria la mejor estrategia");
+                System.out.println("c) Analizaria toda la informacion");
+                System.out.println("d) Buscaria resolverlo junto con otros");
+                break;
+
+            case 5:
+                System.out.println("¿Que te gustaria que reconocieran de ti?");
+                System.out.println("a) Mi valentia");
+                System.out.println("b) Mi determinacion");
+                System.out.println("c) Mi creatividad e inteligencia");
+                System.out.println("d) Mi amabilidad y lealtad");
+                break;
+
+            case 6:
+                System.out.println("¿Que valor elegirias para tu vida en Hogwarts?");
+                System.out.println("a) Coraje");
+                System.out.println("b) Poder y éxito");
+                System.out.println("c) Sabiduria");
+                System.out.println("d) Amistad y compañerismo");
+                break;
+        }
+    }
+
+    // Método para leer una respuesta válida
+    public char obtenerRespuesta() {
+
+        char respuesta;
+
+        do {
+            System.out.print("\nElige una opcion (a, b, c o d): ");
+            respuesta = entrada.next().toLowerCase().charAt(0);
+
+            if (respuesta != 'a' && respuesta != 'b'
+                    && respuesta != 'c' && respuesta != 'd') {
+
+                System.out.println("Opción invalida. Intenta nuevamente.");
+            }
+
+        } while (respuesta != 'a' && respuesta != 'b'
+                && respuesta != 'c' && respuesta != 'd');
+
+        return respuesta;
+    }
+
+    // Método para sumar puntos
+    public void sumarPunto(char respuesta) {
+
+        switch (respuesta) {
+
+            case 'a':
+                gryf++;
+                break;
+
+            case 'b':
+                sly++;
+                break;
+
+            case 'c':
+                raven++;
+                break;
+
+            case 'd':
+                huff++;
+                break;
+        }
+    }
+
+    // Método para obtener la puntuación máxima
+    public int obtenerMaximo() {
+
+        int max = gryf;
+
+        if (sly > max) {
+            max = sly;
+        }
+
+        if (raven > max) {
+            max = raven;
+        }
+
+        if (huff > max) {
+            max = huff;
+        }
+
+        return max;
+    }
+
+    // Método para saber cuántas casas tienen la puntuación máxima
+    public int contarEmpates(int max) {
+
+        int cantidad = 0;
+
+        if (gryf == max) {
+            cantidad++;
+        }
+
+        if (sly == max) {
+            cantidad++;
+        }
+
+        if (raven == max) {
+            cantidad++;
+        }
+
+        if (huff == max) {
+            cantidad++;
+        }
+
+        return cantidad;
+    }
+    // Método para utilizar la pregunta 6 como desempate
+    public String desempatar(int max) {
+
+        mostrarPregunta(6);
+
+        char respuesta = obtenerRespuesta();
+
+        String casaSeleccionada = "";
+
+        switch (respuesta) {
+
+            case 'a':
+                if (gryf == max) {
+                    casaSeleccionada = "Gryffindor";
+                }
+                break;
+
+            case 'b':
+                if (sly == max) {
+                    casaSeleccionada = "Slytherin";
+                }
+                break;
+
+            case 'c':
+                if (raven == max) {
+                    casaSeleccionada = "Ravenclaw";
+                }
+                break;
+
+            case 'd':
+                if (huff == max) {
+                    casaSeleccionada = "Hufflepuff";
+                }
+                break;
+        }
+
+        return casaSeleccionada;
+    }
+
+    // Método para determinar la casa ganadora
+    public String determinarCasa() {
+
+        int max = obtenerMaximo();
+        int cantidadEmpates = contarEmpates(max);
+
+        // Si solamente una casa tiene la puntuación máxima
+        if (cantidadEmpates == 1) {
+
+            if (gryf == max) {
+                return "Gryffindor";
+
+            } else if (sly == max) {
+                return "Slytherin";
+
+            } else if (raven == max) {
+                return "Ravenclaw";
+
+            } else {
+                return "Hufflepuff";
+            }
+
+        } else {
+
+            // Si hay empate
+
+            return desempatar(max);
+        }
+    }
+
+    // Método para mostrar los resultados
+    public void mostrarResultados(String nombre, String casa) {
+
+        System.out.println("\n====================================");
+        System.out.println("       RESULTADOS FINALES");
+        System.out.println("====================================");
+
+        System.out.println("Estudiante: " + nombre);
+        System.out.println();
+
+        System.out.println("Gryffindor: " + gryf);
+        System.out.println("Slytherin: " + sly);
+        System.out.println("Ravenclaw: " + raven);
+        System.out.println("Hufflepuff: " + huff);
+
+        System.out.println("\n====================================");
+        System.out.println("El Sombrero Seleccionador decide...");
+        System.out.println("Casa seleccionada: " + casa);
+        System.out.println("====================================");
+    }
+
+    // Método principal
+    public static void main(String[] args) {
+
+        // Crear objeto de la clase
+        SobreroSeleccionador sombrero = new SobreroSeleccionador();
+
+        System.out.println("====================================");
+        System.out.println("    SOMBRERO SELECCIONADOR");
+        System.out.println("====================================");
+
+        System.out.print("Ingresa tu nombre: ");
+        String nombre = sombrero.entrada.nextLine();
+
+        // Realizar las 5 preguntas principales
+        for (int i = 1; i <= 5; i++) {
+
+            sombrero.mostrarPregunta(i);
+
+            char respuesta = sombrero.obtenerRespuesta();
+
+            sombrero.sumarPunto(respuesta);
+        }
+
+        // Determinar la casa
+        String casaSeleccionada = sombrero.determinarCasa();
+
+        // Mostrar resultados
+        sombrero.mostrarResultados(nombre, casaSeleccionada);
+
+        sombrero.entrada.close();
+    }
+}

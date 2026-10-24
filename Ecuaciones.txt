@@ -1,0 +1,41 @@
+
+package ecuacionesdesegundogrado;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author ALUMNOS
+ */
+public class EcuacionesDeSegundoGrado {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+       Scanner ecuacion = new Scanner (System.in); 
+        
+                double a, b,c, ecuaciones, res1, res2;
+                
+        System.out.println("Ingresa el valor de a:");
+        a=ecuacion.nextDouble();
+        System.out.println("Ingresa el valor de b:");
+        b=ecuacion.nextDouble();
+        System.out.println("Ingresa el valor de c:");
+        c=ecuacion.nextDouble();
+        
+      ecuaciones= ((b*b)-4 *a*c);
+      
+      if (ecuaciones<0){
+          System.out.println("La ecuacion no tiene soluciones reales");
+      }else{
+      
+      res1=(-b+Math.sqrt(ecuaciones))/(2*a);
+      res2=(-b-Math.sqrt(ecuaciones))/(2*a);
+        System.out.println("El resultado es:"+res1);
+        System.out.println("Tu segundo resultado es:"+res2);
+    }
+    }
+}

@@ -1,0 +1,29 @@
+package bienvenidapersonalizada;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author ALUMNOS
+ */
+public class BienvenidaPersonalizada {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        //Declarqamos variables
+        Scanner entrada = new Scanner (System.in);
+        String nombre;
+        
+        //Solicitamos el nombre
+        System.out.println("Ingresa tu nombre: ");
+        nombre=entrada.nextLine();
+        
+        //Mostramos el resultado
+        System.out.println("Bienvenido "+nombre);
+        
+    }
+    
+}

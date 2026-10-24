@@ -1,0 +1,126 @@
+#include <stdio.h>
+
+int main()
+{
+    
+   int opcion;
+      do{
+          printf("\n MENU PRINCIPAL\n");
+          printf("1. Generar serie Fibonacci\n");
+          printf("2. Generar serie Tribonacci\n");
+          printf("3. Convertir decimal a binario\n");
+          printf("4. Fibonacci en decimal y binario\n");
+          printf("5. Salir\n");
+          printf("Seleccione una opcion: \n");
+          scanf("%d", &opcion);
+          
+          switch(opcion){
+              case 1:
+                int num1;
+				printf("Ingrese el numero de terminos: \n"); 
+				scanf("%d",&num1);
+				printf("Serie Fibonacci \n"); 
+				{
+				int x=0,y=1,aux;
+              	printf("%d\n",x);
+              	printf("%d\n",y);
+              	for(int i=3;i<=num1;i++){
+              	    aux=x+y;
+              	    printf("%d\n",aux);
+              	    x=y;
+              	    y=aux;
+              	}
+              	}
+                 break;
+             case 2:
+                int num2;
+				printf("Ingrese el numero de terminos: \n"); 
+				scanf("%d",&num2);
+				printf("Serie Tribonacci \n"); 
+				{
+				int x=0,y=0,z=1,aux;
+              	printf("%d\n",x);
+              	printf("%d\n",y);
+              	printf("%d\n",z);
+              	for(int i=4;i<=num2;i++){
+              	    aux=x+y+z;
+              	    printf("%d\n",aux);
+              	    x=y;
+              	    y=z;
+              	    z=aux;
+              	}
+              	}
+                break;
+             case 3:
+                printf("Ingrese el numero decimal que desea convertir a binario: \n");
+                {
+                	int numeroDecimal, i = 0;
+					int binario [32];
+                	scanf("%d", &numeroDecimal);
+                	while (numeroDecimal > 0) {
+						binario[i] = numeroDecimal % 2; 
+						numeroDecimal = numeroDecimal / 2;  
+						i++;
+						 }
+						 printf("El numero en binario es: ");
+						 for (int j = i - 1; j >= 0; j--) {  
+						 printf("%d", binario[j]);
+						 }
+					} 
+					
+
+                break;
+             case 4:
+                printf("Ingrese el numero de terminos: \n");
+               
+                          	
+				
+				int num3;
+				 
+				scanf("%d",&num3);
+				printf("Serie Fibonacci \n"); 
+				{
+				int x=0,y=1,aux;
+              	printf("%d\n",x);
+              	printf("%d\n",y);
+              	for(int i=3;i<=num3;i++){
+              	    aux=x+y;
+              	    printf("%d\n",aux);
+              	    x=y;
+              	    y=aux;
+              	}
+              	}
+              	
+              	
+                {
+					int numeroDecimal, i = 0;
+					int binario [32];
+                	scanf("%d", &numeroDecimal);
+                	while (numeroDecimal > 0) {
+						binario[i] = numeroDecimal % 2; 
+						numeroDecimal = numeroDecimal / 2;  
+						i++;
+						 }
+						 printf("El numero en binario es: ");
+						 for (int j = i - 1; j >= 0; j--) {  
+						 printf("%d", binario[j]);
+						 }
+					} 
+					
+              	
+                break;
+             case 5:
+                printf("Saliendo... \n");
+                break;
+            default:
+                printf("Opcion no valida. Intente de nuevo.\n");
+                break;
+                
+             
+            }
+          
+          
+      } while(opcion !=5);
+
+    return 0;
+}

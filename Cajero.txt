@@ -1,0 +1,102 @@
+package cajero;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author jesus
+ */
+public class Cajero {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        //declaramos variables
+        
+        Scanner entrada = new Scanner (System.in);
+        int piningresado;
+        int ope, pin, intentos = 3;
+        double saldo = 1000, cantidad;
+
+        
+        while(intentos > 0){
+            
+            System.out.println("Introduce tu PIN");
+            pin=entrada.nextInt();
+            
+            //Condicionamos que solo tenemos 3 intentos
+            
+            if(pin == 1234){
+                do{
+                    System.out.println("==MENU PRINCIPAL=");
+                    System.out.println("1. CONSULTA DE SALDO");
+                    System.out.println("2. DEPOSITAR DINERO");
+                    System.out.println("3. RETIRAR DINERO");
+                    System.out.println("4. CAMBIAR PIN");
+                    System.out.println("5. SALIR");
+             ope=entrada.nextInt();
+             
+               switch (ope){
+                   case 1 -> System.out.println("Su saldo es: "+saldo);
+                       
+                   case 2 -> {
+                       System.out.println("Cantidad que desea depositar:");
+                       cantidad=entrada.nextDouble();
+                       if (cantidad>0){
+                           saldo+=cantidad;
+                           System.out.println("Su nuevo saldo es de: "+saldo);
+                       }else{
+                           System.out.println("Cantidad Invalida");
+                       }}
+                   case 3 -> {
+                       System.out.println("Cantidad que desea Retirar:");
+                       cantidad=entrada.nextDouble();
+                       if(cantidad>0 && cantidad <=saldo){
+                           saldo-= cantidad;
+                           System.out.println("Su nuevo saldo es de: "+saldo);
+                       }else if (cantidad > saldo){
+                           System.out.println("Fondos Insuficientes");
+                       }else{
+                           System.out.println("Monto Invalido");
+                       }}
+                   case 4 -> {
+                       System.out.println("Ingresa tu PIN");
+                       piningresado=entrada.nextInt();
+                       if(piningresado==pin){
+                           System.out.println("Ingresa tu nuevo PIN");
+                           piningresado=entrada.nextInt();
+                           if(piningresado != pin){
+                               pin = piningresado;
+                               System.out.println("Actualizacion exitosa :)");
+                           }else{
+                               System.out.println("El nuevo PIN no puede ser igual al anterior.");
+                           }
+                       }else{
+                           System.out.println("PIN Incorrecto :(");
+                           System.out.println("Actualizacion Cancelada");
+                       }}
+                   case 5 -> {
+                       System.out.println("Gracias por usar nuestro Cajero");
+                       System.out.println("¡Hasta Pronto!");
+                        }
+                       
+                   default -> System.out.println("Opcion Invalida");
+               }     
+                }while (ope!=5);
+                return;
+            }else {
+                intentos--;
+                System.out.println("PIN Incorrecto intente nuevamente.");
+                System.out.print("(Solo tiene"+intentos);
+                System.out.println("intentos");
+            }
+        }
+        System.out.println("Demasiados Intentos Fallidos, CUENTA BLOQUEADA:");
+        
+        
+    }
+    
+}

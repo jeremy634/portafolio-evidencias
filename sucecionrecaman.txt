@@ -1,0 +1,72 @@
+#include <stdio.h>
+
+int main()
+{
+    // Arreglo donde se guardaran los 100 numeros
+    int a[100];
+
+    // Variables para controlar los ciclos
+    int i, j;
+
+    // Variable que guarda el numero que se esta calculando
+    int nuevo;
+
+    // Variable para saber si el numero ya aparecio
+    int repetido;
+
+    // El primer numero de la sucesion de Recaman es 0
+    a[0] = 0;
+
+    // Generar los siguientes 99 numeros
+    for (i = 1; i < 100; i++)
+    {
+        // Primero intentamos restar el numero de posicion
+        nuevo = a[i - 1] - i;
+
+        // Al principio suponemos que el numero no esta repetido
+        repetido = 0;
+
+        // Comprobar si el numero obtenido es valido
+        // Debe ser mayor que 0
+        if (nuevo <= 0)
+        {
+            // Si es menor o igual a 0, no es valido
+            repetido = 1;
+        }
+        else
+        {
+            // Revisar todos los numeros anteriores
+            for (j = 0; j < i; j++)
+            {
+                // Comprobar si el numero ya aparecio
+                if (a[j] == nuevo)
+                {
+                    // Si ya aparecio, se marca como repetido
+                    repetido = 1;
+                }
+            }
+        }
+
+        // Si el numero no es valido o ya aparecio
+        if (repetido == 1)
+        {
+            // En lugar de restar, se suma
+            a[i] = a[i - 1] + i;
+        }
+        else
+        {
+            // Si es valido y no se ha repetido,
+            // se utiliza el numero obtenido mediante la resta
+            a[i] = nuevo;
+        }
+    }
+
+    // Mostrar los 100 numeros de la sucesion
+    for (i = 0; i < 100; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    // Finalizar el programa
+    return 0;
+}

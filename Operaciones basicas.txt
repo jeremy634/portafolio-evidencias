@@ -1,0 +1,40 @@
+package operacionesbasicas;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author ALUMNOS
+ */
+public class OperacionesBasicas {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+       Scanner datos = new Scanner (System.in); 
+        
+       double suma, resta, multiplicacion, division, num1, num2;
+        System.out.println("Ingresa el valor del num 1:");
+        
+     num1=datos.nextDouble();
+       
+             
+              System.out.println("Ingresa el valor del numero 2:");
+     num2=datos.nextDouble();
+    
+     suma= num1+num2;
+     resta= num1-num2;
+     multiplicacion= num1*num2;
+     division= num1/num2;
+     
+        System.out.println("");
+        System.out.println("SUMA: "+suma);
+        System.out.println("RESTA:  "+resta);
+        System.out.println("MULTIPLICACION: "+multiplicacion);
+        System.out.println("DIVISION: "+division);
+    }
+    
+}

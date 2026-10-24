@@ -1,0 +1,23 @@
+package ejercicio;
+/**
+ *
+ * @author ALUMNOS
+ */
+public class Ejercicio {
+
+    /**
+     * @param args the command line arguments
+     */
+    @SuppressWarnings("empty-statement")
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        int i, j, suma;
+        
+        for (i = 0; i < 4; i++){
+        for (j = 3; j > 0; j--){
+            suma = i*10+j;
+            System.out.println("La suma es: "+suma);
+        }
+        
+    }
